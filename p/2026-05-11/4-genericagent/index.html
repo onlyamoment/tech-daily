@@ -4,13 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#060b18">
-<meta name="description" content="每日科技资讯精选">
 <title>GenericAgent · 科技情报</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--bg:#060b18;--bg2:#0d1528;--card:#111b33;--card-hover:#16203f;--border:#1a2645;--text:#e2e8f0;--text-muted:#7c8ab0;--text-dim:#4a5a7a;--accent:#5b7cfa;--accent2:#4ade80;--star:#f59e0b;--pink:#f472b6;--cyan:#22d3ee;--radius:12px;--mw:680px}
+:root{--bg:#060b18;--bg2:#0d1528;--card:#111b33;--card-hover:#16203f;--border:#1a2645;--text:#e2e8f0;--text-muted:#7c8ab0;--text-dim:#4a5a7a;--accent:#5b7cfa;--star:#f59e0b;--cyan:#22d3ee;--radius:12px;--mw:680px}
 html{font-size:16px;-webkit-text-size-adjust:100%}
-body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 .appbar{position:sticky;top:0;z-index:100;background:rgba(6,11,24,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 0 12px}
 .appbar .inner{max-width:var(--mw);margin:0 auto;padding:0 16px;display:flex;align-items:center}
@@ -19,7 +18,7 @@ a{color:inherit;text-decoration:none}
 .appbar .back{font-size:.9rem;color:var(--accent);padding:6px 0;display:flex;align-items:center;gap:4px}
 .container{max-width:var(--mw);margin:0 auto;padding:0 16px}
 .feed{padding:16px 0 40px}
-.date-sep{display:flex;align-items:center;gap:12px;margin:24px 0 12px;color:var(--text-muted);font-size:.8rem;font-weight:600}
+.date-sep{display:flex;align-items:center;gap:12px;margin:28px 0 12px;color:var(--text-muted);font-size:.8rem;font-weight:600}
 .date-sep::after{content:'';flex:1;height:1px;background:var(--border)}
 .date-sep .wk{color:var(--text-dim);font-weight:400}
 .feed-card{display:block;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:10px;cursor:pointer;transition:all .15s;-webkit-tap-highlight-color:transparent}
@@ -32,34 +31,30 @@ a{color:inherit;text-decoration:none}
 .feed-card .meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:.75rem;color:var(--text-dim)}
 .feed-card .meta .stars{color:var(--star)}
 .feed-card .meta .lang{padding:1px 6px;border-radius:3px;background:rgba(91,124,250,.1);color:var(--accent)}
-
 .a-page{padding:16px 0 40px}
-.a-page .ah{margin-bottom:16px}
-.a-page .ah h1{font-size:1.3rem;font-weight:700;line-height:1.4;margin-bottom:8px}
-.a-page .ah .am{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.8rem;color:var(--text-muted)}
+.a-page .ah h1{font-size:1.25rem;font-weight:700;line-height:1.4;margin-bottom:8px}
+.a-page .ah .am{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.8rem;color:var(--text-muted);margin-bottom:16px}
 .a-page .ah .st{padding:2px 8px;border-radius:4px;background:rgba(34,211,238,.1);color:var(--cyan)}
 .ac{font-size:.95rem;line-height:1.9;color:var(--text)}
 .ac p{margin-bottom:12px}
-.ac strong{display:block;margin:20px 0 8px;font-size:1.05rem;color:var(--accent)}
+.ac strong{display:block;margin:20px 0 8px;font-size:1rem;color:var(--accent)}
 .ac ul,.ac ol{padding-left:20px;margin-bottom:12px}
 .ac li{margin-bottom:6px}
 .ac .bq{padding:12px;margin:12px 0;background:var(--bg2);border-radius:8px;border-left:3px solid var(--accent);font-size:.9rem}
 .ac hr{border:none;border-top:1px solid var(--border);margin:16px 0}
-
 .ab{margin-top:24px;padding:16px 0;border-top:1px solid var(--border);display:flex;gap:12px}
 .ab a{flex:1;text-align:center;padding:12px;border-radius:8px;font-size:.9rem;font-weight:500;transition:all .15s}
 .ab .sl{background:var(--card);border:1px solid var(--border);color:var(--accent)}
 .ab .sl:active{background:var(--card-hover)}
 .ab .bl{background:rgba(91,124,250,.1);color:var(--accent)}
 .ab .bl:active{background:rgba(91,124,250,.2)}
-
 .footer{text-align:center;padding:32px 0 24px;color:var(--text-dim);font-size:.75rem;border-top:1px solid var(--border);margin-top:16px}
-.es{text-align:center;padding:80px 0;color:var(--text-dim);font-size:.9rem}
+.es{text-align:center;padding:80px 0;color:var(--text-dim)}
 ::-webkit-scrollbar{width:4px}
 ::-webkit-scrollbar-track{background:var(--bg)}
 ::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
 @media(max-width:480px){html{font-size:15px}.feed-card{padding:14px}.a-page .ah h1{font-size:1.15rem}}
 </style>
 </head>
-<body><header class="appbar"><div class="inner"><a href="/" class="back">← 返回</a></div></header><main class="container"><article class="a-page"><div class="ah"><div style="font-size:.8rem;color:var(--text-muted);margin-bottom:6px">⭐ GitHub 项目</div><h1>GenericAgent</h1><div class="am"><span style="color:var(--star)">⭐ 10.5k</span><span class="st">Python</span></div></div><div class="ac"><p style="color:var(--text-muted);font-size:.9rem">自我进化 Agent：从 3.3K 行种子代码生长技能树，实现全系统控制，代币消耗减少 6 倍。</p><hr></div><div class="ac"><strong>GenericAgent：自我进化的 AI Agent</strong><p>GenericAgent 是一个革命性的项目——它从仅 3,300 行种子代码开始，通过自我进化机制生长出完整技能树。</p><p>#### 核心特性</p><ul><li>**自我进化**：系统可以自主学习和扩展能力，无需人工干预</li><li>**全系统控制**：能够接管整个操作系统的控制权</li><li>**效率革命**：代币消耗减少 6 倍，比传统 Agent 更经济高效</li><li>**技能树生长**：从基础能力开始，逐步构建复杂技能体系</li></ul><p>#### 技术亮点</p><ul><li>种子代码仅 3.3K 行，但能自主扩展</li><li>系统级操作能力（文件、进程、网络等）</li><li>代币使用效率极大提升</li></ul><p>#### 意义</p><p>这是 Agent 自我进化方向的重要突破，展示了未来 AI Agent 从&quot;被编程&quot;到&quot;自我成长&quot;的可能性。</p></div><div class="ab"><a href="https://github.com/lsdefine/GenericAgent" class="sl" target="_blank" rel="noopener">🔗 阅读原文</a><a href="/" class="bl">← 返回首页</a></div></article></main><footer class="footer"><div class="container"><p>由 AI 自动生成 · 2026-05-11 09:42</p><p style="margin-top:4px;font-size:.7rem;color:var(--text-dim)">🚀 保持对技术的敏锐</p></div></footer></body>
+<body><header class="appbar"><div class="inner"><a href="/" class="back">← 返回</a></div></header><main class="container"><article class="a-page"><div class="ah"><div style="font-size:.8rem;color:var(--text-muted);margin-bottom:6px">⭐ GitHub 项目</div><h1>GenericAgent</h1><div class="am"><span style="color:var(--star)">⭐ 10.5k</span><span class="st">Python</span></div></div><div class="ac"><p style="color:var(--text-muted);font-size:.9rem">自我进化 Agent：从 3.3K 行种子代码生长技能树，实现全系统控制，代币消耗减少 6 倍。</p><hr></div><div class="ac"><strong>GenericAgent：自我进化的 AI Agent</strong><p>GenericAgent 是一个革命性的项目——它从仅 3,300 行种子代码开始，通过自我进化机制生长出完整技能树。</p><p>#### 核心特性</p><ul><li>**自我进化**：系统可以自主学习和扩展能力，无需人工干预</li><li>**全系统控制**：能够接管整个操作系统的控制权</li><li>**效率革命**：代币消耗减少 6 倍，比传统 Agent 更经济高效</li><li>**技能树生长**：从基础能力开始，逐步构建复杂技能体系</li></ul><p>#### 技术亮点</p><ul><li>种子代码仅 3.3K 行，但能自主扩展</li><li>系统级操作能力（文件、进程、网络等）</li><li>代币使用效率极大提升</li></ul><p>#### 意义</p><p>这是 Agent 自我进化方向的重要突破，展示了未来 AI Agent 从&quot;被编程&quot;到&quot;自我成长&quot;的可能性。</p></div><div class="ab"><a href="https://github.com/lsdefine/GenericAgent" class="sl" target="_blank" rel="noopener">🔗 阅读原文</a><a href="/" class="bl">← 返回首页</a></div></article></main><footer class="footer"><div class="container"><p>由 AI 自动生成 · 2026-05-11 09:46</p></div></footer></body>
 </html>
