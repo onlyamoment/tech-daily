@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#060b18">
+<meta name="description" content="每日科技资讯精选 · GitHub 高分项目 · AI 前沿工具">
+<title>2026-05-11 科技情报 · 📡 科技情报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg: #060b18;
+    --bg2: #0d1528;
+    --card: #111b33;
+    --card-hover: #16203f;
+    --border: #1a2645;
+    --text: #e2e8f0;
+    --text-muted: #7c8ab0;
+    --accent: #5b7cfa;
+    --accent2: #4ade80;
+    --star: #f59e0b;
+    --pink: #f472b6;
+    --orange: #fb923c;
+    --cyan: #22d3ee;
+}
+
+html { font-size: 16px; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC",
+                 "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* ── Layout ── */
+.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+/* ── Header ── */
+.header {
+    padding: 28px 0 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+}
+.header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--accent), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.header .subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+.header-nav {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+.header-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+.header-nav a:hover,
+.header-nav a.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* ── Day Navigation ── */
+.day-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    background: var(--bg2);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+.day-nav .date {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.day-nav .links {
+    display: flex;
+    gap: 12px;
+}
+.day-nav a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: rgba(91, 124, 250, 0.1);
+    transition: background 0.2s;
+}
+.day-nav a:hover {
+    background: rgba(91, 124, 250, 0.2);
+}
+
+/* ── Section Titles ── */
+.section-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 28px 0 16px;
+    padding-left: 12px;
+    border-left: 3px solid var(--accent);
+}
+.section-title .emoji { margin-right: 8px; }
+
+/* ── Project Cards ── */
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: all 0.2s;
+}
+.card:hover {
+    background: var(--card-hover);
+    border-color: rgba(91, 124, 250, 0.3);
+    transform: translateY(-1px);
+}
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+.card-header .name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+}
+.card-header .name:hover {
+    text-decoration: underline;
+}
+.card-header .stars {
+    font-size: 0.8rem;
+    color: var(--star);
+    font-weight: 500;
+}
+.card-header .lang {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(91, 124, 250, 0.1);
+    color: var(--accent);
+    font-weight: 500;
+}
+.card .desc {
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.6;
+}
+.card .url {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    word-break: break-all;
+}
+
+/* ── Article Cards ── */
+.article-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: all 0.2s;
+}
+.article-card:hover {
+    background: var(--card-hover);
+    border-color: rgba(91, 124, 250, 0.3);
+}
+.article-card .title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--cyan);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 6px;
+}
+.article-card .title:hover {
+    text-decoration: underline;
+}
+.article-card .desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+.article-card .meta {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.article-card .source {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(34, 211, 238, 0.1);
+    color: var(--cyan);
+}
+.article-card .read-link {
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-decoration: none;
+}
+.article-card .read-link:hover {
+    text-decoration: underline;
+}
+.article-card .trans-btn {
+    font-size: 0.8rem;
+    color: var(--accent2);
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: 1px solid var(--accent2);
+    border-radius: 6px;
+    padding: 2px 10px;
+    transition: all 0.2s;
+    display: inline-block;
+}
+.article-card .trans-btn:hover {
+    background: rgba(74, 222, 128, 0.1);
+}
+.trans-content {
+    display: none;
+    margin-top: 12px;
+    padding: 12px;
+    background: var(--bg2);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--text);
+    border: 1px solid var(--border);
+    max-height: 500px;
+    overflow-y: auto;
+}
+.trans-content.show { display: block; }
+.trans-content .trans-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* ── Index Page: Report List ── */
+.report-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.report-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s;
+}
+.report-item:hover {
+    background: var(--card-hover);
+    border-color: rgba(91, 124, 250, 0.3);
+    transform: translateY(-1px);
+}
+.report-item .left {
+    flex: 1;
+}
+.report-item .date-text {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+.report-item .preview {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+.report-item .counts {
+    display: flex;
+    gap: 12px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+}
+.report-item .arrow {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-left: 12px;
+}
+
+/* ── Footer ── */
+.footer {
+    text-align: center;
+    padding: 40px 0 32px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.card, .article-card, .report-item, .day-nav {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* ── Loading state for translations ── */
+.trans-loading {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+    html { font-size: 15px; }
+    .container { padding: 0 16px; }
+    .header h1 { font-size: 1.3rem; }
+    .card, .article-card { padding: 14px; }
+    .report-item { padding: 14px; }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+</style>
+</head>
+<body><header class="header">
+    <div class="container">
+        <h1>📡 科技情报</h1>
+        <p class="subtitle">每日科技资讯精选 · GitHub 高分项目 · AI 前沿工具</p>
+        <nav class="header-nav"><a href="/" >🏠 首页</a><a href="/2026-05-11/" class=active>2026.05.11</a></nav>
+    </div>
+</header><main class="container"><div class="day-nav"><span class="date">📅 2026-05-11 星期一</span><div class="links"></div></div><h2 class="section-title"><span class="emoji">⭐</span> GitHub 高分项目</h2>
+            <div class="card">
+                <div class="card-header">
+                    <a href="https://github.com/affaan-m/everything-claude-code" class="name" target="_blank" rel="noopener">everything-claude-code</a>
+                    <span class="stars">⭐ 178.1k</span>
+                    <span class="lang">JavaScript</span>
+                </div>
+                <div class="desc">座席线束性能优化系统。Claude Code、Codex、OpenCode、Cursor 等 AI 编码工具的技能、本能、记忆、安全和研究优先级开发方案。</div>
+                <a href="https://github.com/affaan-m/everything-claude-code" class="url" target="_blank" rel="noopener">🔗 https://github.com/affaan-m/everything-claude-code</a>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a href="https://github.com/HKUDS/AI-Trader" class="name" target="_blank" rel="noopener">AI-Trader</a>
+                    <span class="stars">⭐ 15.5k</span>
+                    <span class="lang">Python</span>
+                </div>
+                <div class="desc">100% 全自动代理本地交易系统，基于 AI 驱动的自动化交易平台。</div>
+                <a href="https://github.com/HKUDS/AI-Trader" class="url" target="_blank" rel="noopener">🔗 https://github.com/HKUDS/AI-Trader</a>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a href="https://github.com/jundot/omlx" class="name" target="_blank" rel="noopener">omlx</a>
+                    <span class="stars">⭐ 13.3k</span>
+                    <span class="lang">Python</span>
+                </div>
+                <div class="desc">LLM 推理服务器，支持 Apple Silicon 连续批处理 + SSD 缓存，配备 macOS 菜单栏管理界面。</div>
+                <a href="https://github.com/jundot/omlx" class="url" target="_blank" rel="noopener">🔗 https://github.com/jundot/omlx</a>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a href="https://github.com/lsdefine/GenericAgent" class="name" target="_blank" rel="noopener">GenericAgent</a>
+                    <span class="stars">⭐ 10.5k</span>
+                    <span class="lang">Python</span>
+                </div>
+                <div class="desc">自我进化 Agent：从 3.3K 行种子代码生长技能树，实现全系统控制，代币消耗减少 6 倍。</div>
+                <a href="https://github.com/lsdefine/GenericAgent" class="url" target="_blank" rel="noopener">🔗 https://github.com/lsdefine/GenericAgent</a>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    <a href="https://github.com/CloakHQ/CloakBrowser" class="name" target="_blank" rel="noopener">CloakBrowser</a>
+                    <span class="stars">⭐ 4.7k</span>
+                    <span class="lang">Python</span>
+                </div>
+                <div class="desc">Stealth Chromium 浏览器，通过每次机器人检测测试，源级指纹补丁，30/30 测试全部通过。</div>
+                <a href="https://github.com/CloakHQ/CloakBrowser" class="url" target="_blank" rel="noopener">🔗 https://github.com/CloakHQ/CloakBrowser</a>
+            </div><h2 class="section-title"><span class="emoji">🧠</span> AI 工具 & 技巧</h2>
+            <div class="article-card">
+                <a href="https://karthikeyanrathinam.medium.com/do-you-aware-top-10-agentic-ai-frameworks-2026-ff8f11e3fd1b" class="title" target="_blank" rel="noopener">2026年十大智能AI框架</a>
+                <div class="desc">深度解析 LangChain、CrewAI 等十大 AI 框架的优劣势、适用场景和选型建议。</div>
+                <div class="meta">
+                    <span class="source">Medium</span>
+                    <a href="https://karthikeyanrathinam.medium.com/do-you-aware-top-10-agentic-ai-frameworks-2026-ff8f11e3fd1b" class="read-link" target="_blank" rel="noopener">🔗 阅读原文</a>
+                    <span class='trans-btn' onclick='toggleTrans("trans-57761929")'>📖 中文翻译</span>
+                </div>
+                <div id="trans-57761929" class="trans-content"><strong style='display:block;margin:12px 0 4px;font-size:1.05rem;'>2026年十大智能AI框架概览</strong><p>本文系统梳理了当前最主流的10个AI Agent框架，从框架定位、核心特性、适用场景三个维度进行了横向对比。</p><strong style='display:block;margin:8px 0 4px;'>榜单概览</strong><span style='display:block;padding-left:12px;'>• **LangChain**：生态最完善的框架，适合需要多模型、多工具集成的复杂工作流</span><span style='display:block;padding-left:12px;'>• **CrewAI**：多Agent协作框架，适合团队级任务分配</span><span style='display:block;padding-left:12px;'>• **AutoGen**：微软出品，强调多Agent对话和任务编排</span><span style='display:block;padding-left:12px;'>• **Semantic Kernel**：微软轻量级框架，与Azure生态深度集成</span><span style='display:block;padding-left:12px;'>• **LangGraph**：LangChain的子项目，专注图状工作流编排</span><span style='display:block;padding-left:12px;'>• **Dify**：开源LLM应用开发平台，可视化工作流</span><span style='display:block;padding-left:12px;'>• **Flowise**：低代码AI工作流构建工具</span><span style='display:block;padding-left:12px;'>• **MetaGPT**：模拟软件公司流程的多Agent框架</span><span style='display:block;padding-left:12px;'>• **SuperAGI**：对标AutoGPT，强调可扩展性</span><span style='display:block;padding-left:12px;'>• **Agno**（原Phidata）：面向生产的AI Agent框架</span><strong style='display:block;margin:8px 0 4px;'>选型建议</strong><span style='display:block;padding-left:12px;'>• 需要最大灵活性 → LangChain</span><span style='display:block;padding-left:12px;'>• 多Agent协作 → CrewAI / AutoGen</span><span style='display:block;padding-left:12px;'>• 可视化/低代码 → Dify / Flowise</span><span style='display:block;padding-left:12px;'>• 生产部署 → Agno / Semantic Kernel</span><div style='margin-top:8px;font-size:0.75rem;color:var(--text-muted);'>🤖 AI 翻译 · 仅供参考</div></div>
+            </div>
+            <div class="article-card">
+                <a href="https://www.freecodecamp.org/news/the-codex-handbook-a-practical-guide-to-openai-s-coding-platform/" class="title" target="_blank" rel="noopener">Codex手册 — OpenAI编码平台实用指南</a>
+                <div class="desc">全面介绍 OpenAI Codex 编码平台的功能特性、使用技巧和最佳实践。</div>
+                <div class="meta">
+                    <span class="source">freeCodeCamp</span>
+                    <a href="https://www.freecodecamp.org/news/the-codex-handbook-a-practical-guide-to-openai-s-coding-platform/" class="read-link" target="_blank" rel="noopener">🔗 阅读原文</a>
+                    <span class='trans-btn' onclick='toggleTrans("trans-227582240")'>📖 中文翻译</span>
+                </div>
+                <div id="trans-227582240" class="trans-content"><strong style='display:block;margin:12px 0 4px;font-size:1.05rem;'>Codex 手册：OpenAI编码平台实用指南</strong><p>本文是 OpenAI Codex 编码平台的全面入门指南，覆盖了从基础配置到高级技巧的全方位内容。</p><strong style='display:block;margin:8px 0 4px;'>主要内容</strong><span style='display:block;padding-left:12px;'>• **Codex 是什么**：OpenAI 推出的 AI 编码代理，可独立完成编程任务</span><span style='display:block;padding-left:12px;'>• **核心功能**：支持多文件编辑、终端操作、代码审查、Git操作等</span><span style='display:block;padding-left:12px;'>• **工作模式**：支持交互式对话模式和自动执行模式</span><span style='display:block;padding-left:12px;'>• **与其他工具对比**：与 Claude Code、Cursor 等对比的优劣势分析</span><strong style='display:block;margin:8px 0 4px;'>实用技巧</strong><span style='display:block;padding-left:12px;'>• 利用 Codex 进行代码重构时，先提供清晰的需求描述</span><span style='display:block;padding-left:12px;'>• 复杂任务建议分解为子任务逐步完成</span><span style='display:block;padding-left:12px;'>• 善用 Codex 的上下文理解能力处理遗留代码</span><div style='margin-top:8px;font-size:0.75rem;color:var(--text-muted);'>🤖 AI 翻译 · 仅供参考</div></div>
+            </div>
+            <div class="article-card">
+                <a href="https://coursiv.io/blog/claude-code-vs-codex-2026/" class="title" target="_blank" rel="noopener">Claude Code vs Codex 2026对比</a>
+                <div class="desc">2026年两大AI编码工具 Claude Code 和 OpenAI Codex 的详细对比分析。</div>
+                <div class="meta">
+                    <span class="source">Coursiv</span>
+                    <a href="https://coursiv.io/blog/claude-code-vs-codex-2026/" class="read-link" target="_blank" rel="noopener">🔗 阅读原文</a>
+                    <span class='trans-btn' onclick='toggleTrans("trans-111550979")'>📖 中文翻译</span>
+                </div>
+                <div id="trans-111550979" class="trans-content"><strong style='display:block;margin:12px 0 4px;font-size:1.05rem;'>Claude Code vs Codex 2026 全面对比</strong><strong style='display:block;margin:8px 0 4px;'>核心差异</strong><span style='display:block;padding-left:12px;'>• **Claude Code**：擅长长上下文理解、复杂的多文件重构，代码质量高</span><span style='display:block;padding-left:12px;'>• **Codex**：编码速度更快，与GitHub生态集成更深</span><strong style='display:block;margin:8px 0 4px;'>适用场景</strong><span style='display:block;padding-left:12px;'>• **日常编码**：两者旗鼓相当</span><span style='display:block;padding-left:12px;'>• **大型重构**：Claude Code 胜出（超长上下文窗口）</span><span style='display:block;padding-left:12px;'>• **快速原型**：Codex 更快</span><span style='display:block;padding-left:12px;'>• **企业级开发**：Codex 的GitHub集成更有优势</span><strong style='display:block;margin:8px 0 4px;'>价格对比</strong><span style='display:block;padding-left:12px;'>• Claude Code：按token计费，长上下文场景更经济</span><span style='display:block;padding-left:12px;'>• Codex：订阅制，短期高频使用成本更低</span><strong style='display:block;margin:8px 0 4px;'>结论</strong><p>没有绝对的好坏，建议根据具体项目和团队需求选择。两者也可以组合使用发挥各自优势。</p><div style='margin-top:8px;font-size:0.75rem;color:var(--text-muted);'>🤖 AI 翻译 · 仅供参考</div></div>
+            </div>
+            <div class="article-card">
+                <a href="https://www.memob.com/blog/the-top-20-ai-tools-of-2026-have-arrived/" class="title" target="_blank" rel="noopener">2026年AI成功必备工具Top20</a>
+                <div class="desc">2026年AI领域最实用的20款工具盘点，涵盖开发、设计、写作、数据分析等场景。</div>
+                <div class="meta">
+                    <span class="source">Memob</span>
+                    <a href="https://www.memob.com/blog/the-top-20-ai-tools-of-2026-have-arrived/" class="read-link" target="_blank" rel="noopener">🔗 阅读原文</a>
+                    <span class='trans-btn' onclick='toggleTrans("trans-95161019")'>📖 中文翻译</span>
+                </div>
+                <div id="trans-95161019" class="trans-content"><strong style='display:block;margin:12px 0 4px;font-size:1.05rem;'>2026年AI成功必备工具Top20</strong><p>本文盘点了2026年AI领域最值得关注的20款工具，按照使用场景分类：</p><strong style='display:block;margin:8px 0 4px;'>开发类</strong><span style='display:block;padding-left:12px;'>1. Claude Code / Codex — AI编码代理</span><span style='display:block;padding-left:12px;'>2. Cursor — AI原生IDE</span><span style='display:block;padding-left:12px;'>3. Windsurf — 新一代AI编程助手</span><span style='display:block;padding-left:12px;'>4. OpenClaw — AI Agent平台</span><strong style='display:block;margin:8px 0 4px;'>设计类</strong><span style='display:block;padding-left:12px;'>5. Midjourney v7 — 图像生成</span><span style='display:block;padding-left:12px;'>6. Runway Gen-4 — 视频生成</span><span style='display:block;padding-left:12px;'>7. Figma AI — 设计协作</span><strong style='display:block;margin:8px 0 4px;'>写作类</strong><span style='display:block;padding-left:12px;'>8. Lex — AI写作助手</span><span style='display:block;padding-left:12px;'>9. Grammarly AI — 写作增强</span><span style='display:block;padding-left:12px;'>10. Mem — AI笔记</span><strong style='display:block;margin:8px 0 4px;'>数据分析</strong><span style='display:block;padding-left:12px;'>11. Julius AI — 数据分析</span><span style='display:block;padding-left:12px;'>12. Tableau GPT — 可视化</span><strong style='display:block;margin:8px 0 4px;'>生产力</strong><span style='display:block;padding-left:12px;'>13. Notion AI — 知识管理</span><span style='display:block;padding-left:12px;'>14. Motion — AI日程</span><span style='display:block;padding-left:12px;'>15. Rewind — 个人搜索</span><strong style='display:block;margin:8px 0 4px;'>创意工具</strong><span style='display:block;padding-left:12px;'>16. Suno — 音乐生成</span><span style='display:block;padding-left:12px;'>17. ElevenLabs — 语音合成</span><span style='display:block;padding-left:12px;'>18. Pika — 视频编辑</span><strong style='display:block;margin:8px 0 4px;'>新兴趋势</strong><span style='display:block;padding-left:12px;'>19. AI Agent框架（见Top10榜单）</span><span style='display:block;padding-left:12px;'>20. 自主Agent系统</span><p>&gt; 2026年的趋势是从单一AI工具向AI Agent生态系统演进。</p><div style='margin-top:8px;font-size:0.75rem;color:var(--text-muted);'>🤖 AI 翻译 · 仅供参考</div></div>
+            </div>
+            <div class="article-card">
+                <a href="https://www.youtube.com/watch?v=UE-EqVYXpDk" class="title" target="_blank" rel="noopener">初学者OpenClaw教程（速成课程）</a>
+                <div class="desc">OpenClaw AI Agent 平台的初学者入门教程视频，快速上手核心功能。</div>
+                <div class="meta">
+                    <span class="source">YouTube</span>
+                    <a href="https://www.youtube.com/watch?v=UE-EqVYXpDk" class="read-link" target="_blank" rel="noopener">🔗 阅读原文</a>
+                    
+                </div>
+                
+            </div>
+            <div class="article-card">
+                <a href="https://www.youtube.com/watch?v=29N-1iki2Ls" class="title" target="_blank" rel="noopener">如何使用Windsurf AI（附官方文档）</a>
+                <div class="desc">Windsurf AI 编码助手的使用教程和官方文档链接。</div>
+                <div class="meta">
+                    <span class="source">YouTube</span>
+                    <a href="https://www.youtube.com/watch?v=29N-1iki2Ls" class="read-link" target="_blank" rel="noopener">🔗 阅读原文</a>
+                    <span class='trans-btn' onclick='toggleTrans("trans-58015315")'>📖 中文翻译</span>
+                </div>
+                <div id="trans-58015315" class="trans-content"><strong style='display:block;margin:12px 0 4px;font-size:1.05rem;'>Windsurf AI 使用指南</strong><p>Windsurf 是2026年崛起的AI编程助手，定位为&quot;AI原生IDE&quot;。</p><strong style='display:block;margin:8px 0 4px;'>核心特点</strong><span style='display:block;padding-left:12px;'>• 深度理解项目上下文</span><span style='display:block;padding-left:12px;'>• 支持多文件协同编辑</span><span style='display:block;padding-left:12px;'>• 智能代码补全和重构</span><span style='display:block;padding-left:12px;'>• 内置终端和调试功能</span><strong style='display:block;margin:8px 0 4px;'>快速上手</strong><span style='display:block;padding-left:12px;'>1. 安装 Windsurf IDE</span><span style='display:block;padding-left:12px;'>2. 连接到你的代码仓库</span><span style='display:block;padding-left:12px;'>3. 使用自然语言描述编程任务</span><span style='display:block;padding-left:12px;'>4. AI自动完成代码编写和调试</span><strong style='display:block;margin:8px 0 4px;'>与同类对比</strong><p>相比 Cursor，Windsurf 在大型项目理解和跨文件重构方面表现更优。</p><div style='margin-top:8px;font-size:0.75rem;color:var(--text-muted);'>🤖 AI 翻译 · 仅供参考</div></div>
+            </div><h2 class="section-title"><span class="emoji">💡</span> 技巧速览</h2><div class="article-card"><div class="desc" style="color:var(--text);">🔥 今日亮点：GenericAgent 实现自我进化，从3300行种子代码生长出完整技能树，代币消耗减少6倍——这是 Agent 自我进化方向的重大突破。</div><div class="meta"><a href="https://github.com/lsdefine/GenericAgent" class="read-link" target="_blank" rel="noopener">🔗 了解更多</a></div></div><div class="article-card"><div class="desc" style="color:var(--text);">💡 omlx 让 Apple Silicon Mac 变身高效 LLM 推理服务器，支持 SSD 缓存和菜单栏管理——Mac 用户做本地推理的首选方案。</div><div class="meta"><a href="https://github.com/jundot/omlx" class="read-link" target="_blank" rel="noopener">🔗 了解更多</a></div></div></main><footer class="footer">
+    <div class="container">
+        <p>由 AI 自动生成 · 每日更新 · 最后更新 2026-05-11 09:09</p>
+        <p style="margin-top:4px;font-size:0.75rem;">🚀 保持对技术的敏锐</p>
+    </div>
+</footer>
+
+<script>
+function toggleTrans(id) {
+    var el = document.getElementById(id);
+    if (el) {
+        el.classList.toggle('show');
+        // Scroll into view with smooth behavior
+        if (el.classList.contains('show')) {
+            setTimeout(function() {
+                el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 100);
+        }
+    }
+}
+</script>
+</body>
+</html>

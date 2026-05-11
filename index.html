@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="theme-color" content="#060b18">
+<meta name="description" content="每日科技资讯精选 · GitHub 高分项目 · AI 前沿工具">
+<title>📡 科技情报 · 📡 科技情报</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg: #060b18;
+    --bg2: #0d1528;
+    --card: #111b33;
+    --card-hover: #16203f;
+    --border: #1a2645;
+    --text: #e2e8f0;
+    --text-muted: #7c8ab0;
+    --accent: #5b7cfa;
+    --accent2: #4ade80;
+    --star: #f59e0b;
+    --pink: #f472b6;
+    --orange: #fb923c;
+    --cyan: #22d3ee;
+}
+
+html { font-size: 16px; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC",
+                 "Microsoft YaHei", "Helvetica Neue", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+/* ── Layout ── */
+.container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+
+/* ── Header ── */
+.header {
+    padding: 28px 0 16px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 32px;
+}
+.header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, var(--accent), var(--cyan));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.header .subtitle {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+.header-nav {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+.header-nav a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 4px 0;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+}
+.header-nav a:hover,
+.header-nav a.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* ── Day Navigation ── */
+.day-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 12px 16px;
+    background: var(--bg2);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+.day-nav .date {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+.day-nav .links {
+    display: flex;
+    gap: 12px;
+}
+.day-nav a {
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background: rgba(91, 124, 250, 0.1);
+    transition: background 0.2s;
+}
+.day-nav a:hover {
+    background: rgba(91, 124, 250, 0.2);
+}
+
+/* ── Section Titles ── */
+.section-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin: 28px 0 16px;
+    padding-left: 12px;
+    border-left: 3px solid var(--accent);
+}
+.section-title .emoji { margin-right: 8px; }
+
+/* ── Project Cards ── */
+.card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: all 0.2s;
+}
+.card:hover {
+    background: var(--card-hover);
+    border-color: rgba(91, 124, 250, 0.3);
+    transform: translateY(-1px);
+}
+.card-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
+}
+.card-header .name {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+}
+.card-header .name:hover {
+    text-decoration: underline;
+}
+.card-header .stars {
+    font-size: 0.8rem;
+    color: var(--star);
+    font-weight: 500;
+}
+.card-header .lang {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(91, 124, 250, 0.1);
+    color: var(--accent);
+    font-weight: 500;
+}
+.card .desc {
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.6;
+}
+.card .url {
+    display: block;
+    margin-top: 8px;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    word-break: break-all;
+}
+
+/* ── Article Cards ── */
+.article-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 12px;
+    transition: all 0.2s;
+}
+.article-card:hover {
+    background: var(--card-hover);
+    border-color: rgba(91, 124, 250, 0.3);
+}
+.article-card .title {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--cyan);
+    text-decoration: none;
+    display: block;
+    margin-bottom: 6px;
+}
+.article-card .title:hover {
+    text-decoration: underline;
+}
+.article-card .desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
+.article-card .meta {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.article-card .source {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: rgba(34, 211, 238, 0.1);
+    color: var(--cyan);
+}
+.article-card .read-link {
+    font-size: 0.8rem;
+    color: var(--accent);
+    text-decoration: none;
+}
+.article-card .read-link:hover {
+    text-decoration: underline;
+}
+.article-card .trans-btn {
+    font-size: 0.8rem;
+    color: var(--accent2);
+    text-decoration: none;
+    cursor: pointer;
+    background: none;
+    border: 1px solid var(--accent2);
+    border-radius: 6px;
+    padding: 2px 10px;
+    transition: all 0.2s;
+    display: inline-block;
+}
+.article-card .trans-btn:hover {
+    background: rgba(74, 222, 128, 0.1);
+}
+.trans-content {
+    display: none;
+    margin-top: 12px;
+    padding: 12px;
+    background: var(--bg2);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    line-height: 1.8;
+    color: var(--text);
+    border: 1px solid var(--border);
+    max-height: 500px;
+    overflow-y: auto;
+}
+.trans-content.show { display: block; }
+.trans-content .trans-meta {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* ── Index Page: Report List ── */
+.report-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.report-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text);
+    transition: all 0.2s;
+}
+.report-item:hover {
+    background: var(--card-hover);
+    border-color: rgba(91, 124, 250, 0.3);
+    transform: translateY(-1px);
+}
+.report-item .left {
+    flex: 1;
+}
+.report-item .date-text {
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+.report-item .preview {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+.report-item .counts {
+    display: flex;
+    gap: 12px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 6px;
+}
+.report-item .arrow {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-left: 12px;
+}
+
+/* ── Footer ── */
+.footer {
+    text-align: center;
+    padding: 40px 0 32px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+}
+
+/* ── Animations ── */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.card, .article-card, .report-item, .day-nav {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* ── Loading state for translations ── */
+.trans-loading {
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+    html { font-size: 15px; }
+    .container { padding: 0 16px; }
+    .header h1 { font-size: 1.3rem; }
+    .card, .article-card { padding: 14px; }
+    .report-item { padding: 14px; }
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+</style>
+</head>
+<body><header class="header">
+    <div class="container">
+        <h1>📡 科技情报</h1>
+        <p class="subtitle">每日科技资讯精选 · GitHub 高分项目 · AI 前沿工具</p>
+        <nav class="header-nav"><a href="/" class=active>🏠 首页</a><a href="/2026-05-11/" >2026.05.11</a></nav>
+    </div>
+</header><main class="container"><div class="report-list">
+            <a href="/2026-05-11/" class="report-item">
+                <div class="left">
+                    <div class="date-text">📅 2026-05-11 星期一</div>
+                    <div class="counts">🌟 5 个项目 · 📄 6 篇文章</div>
+                </div>
+                <div class="arrow">→</div>
+            </a></div></main><footer class="footer">
+    <div class="container">
+        <p>由 AI 自动生成 · 每日更新 · 最后更新 2026-05-11 09:09</p>
+        <p style="margin-top:4px;font-size:0.75rem;">🚀 保持对技术的敏锐</p>
+    </div>
+</footer>
+</body>
+</html>
