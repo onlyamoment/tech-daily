@@ -2,216 +2,64 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
 <meta name="theme-color" content="#060b18">
 <meta name="description" content="每日科技资讯精选">
 <title>omlx · 科技情报</title>
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-    --bg: #060b18;
-    --bg2: #0d1528;
-    --card: #111b33;
-    --card-hover: #16203f;
-    --border: #1a2645;
-    --text: #e2e8f0;
-    --text-muted: #7c8ab0;
-    --text-dim: #4a5a7a;
-    --accent: #5b7cfa;
-    --accent2: #4ade80;
-    --star: #f59e0b;
-    --pink: #f472b6;
-    --orange: #fb923c;
-    --cyan: #22d3ee;
-    --radius: 12px;
-    --max-w: 680px;
-}
-html { font-size: 16px; -webkit-text-size-adjust: 100%; }
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "PingFang SC",
-                 "Microsoft YaHei", "Helvetica Neue", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-}
-a { color: inherit; text-decoration: none; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--bg:#060b18;--bg2:#0d1528;--card:#111b33;--card-hover:#16203f;--border:#1a2645;--text:#e2e8f0;--text-muted:#7c8ab0;--text-dim:#4a5a7a;--accent:#5b7cfa;--accent2:#4ade80;--star:#f59e0b;--pink:#f472b6;--cyan:#22d3ee;--radius:12px;--mw:680px}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.appbar{position:sticky;top:0;z-index:100;background:rgba(6,11,24,.92);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 0 12px}
+.appbar .inner{max-width:var(--mw);margin:0 auto;padding:0 16px;display:flex;align-items:center}
+.appbar h1{font-size:1.15rem;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.appbar .subtitle{font-size:.75rem;color:var(--text-muted);margin-top:2px}
+.appbar .back{font-size:.9rem;color:var(--accent);padding:6px 0;display:flex;align-items:center;gap:4px}
+.container{max-width:var(--mw);margin:0 auto;padding:0 16px}
+.feed{padding:16px 0 40px}
+.date-sep{display:flex;align-items:center;gap:12px;margin:24px 0 12px;color:var(--text-muted);font-size:.8rem;font-weight:600}
+.date-sep::after{content:'';flex:1;height:1px;background:var(--border)}
+.date-sep .wk{color:var(--text-dim);font-weight:400}
+.feed-card{display:block;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:10px;cursor:pointer;transition:all .15s;-webkit-tap-highlight-color:transparent}
+.feed-card:active{background:var(--card-hover);transform:scale(.98)}
+.tag{display:inline-block;font-size:.7rem;padding:2px 8px;border-radius:4px;margin-bottom:8px;font-weight:600}
+.tg-github .tag{background:rgba(245,158,11,.15);color:var(--star)}
+.tg-article .tag{background:rgba(34,211,238,.15);color:var(--cyan)}
+.feed-card .title{font-size:1rem;font-weight:600;margin-bottom:6px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.feed-card .desc{font-size:.85rem;color:var(--text-muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;line-height:1.6}
+.feed-card .meta{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:10px;font-size:.75rem;color:var(--text-dim)}
+.feed-card .meta .stars{color:var(--star)}
+.feed-card .meta .lang{padding:1px 6px;border-radius:3px;background:rgba(91,124,250,.1);color:var(--accent)}
 
-/* ── App Bar ── */
-.appbar {
-    position: sticky; top: 0; z-index: 100;
-    background: rgba(6, 11, 24, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-    padding: 14px 0 12px;
-}
-.appbar .inner {
-    max-width: var(--max-w); margin: 0 auto; padding: 0 16px;
-    display: flex; align-items: center; justify-content: space-between;
-}
-.appbar h1 {
-    font-size: 1.2rem; font-weight: 700;
-    background: linear-gradient(135deg, var(--accent), var(--cyan));
-    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-    background-clip: text;
-}
-.appbar .subtitle { font-size: 0.75rem; color: var(--text-muted); }
-.appbar .back {
-    font-size: 0.9rem; color: var(--accent);
-    padding: 6px 0;
-    display: flex; align-items: center; gap: 4px;
-}
+.a-page{padding:16px 0 40px}
+.a-page .ah{margin-bottom:16px}
+.a-page .ah h1{font-size:1.3rem;font-weight:700;line-height:1.4;margin-bottom:8px}
+.a-page .ah .am{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:.8rem;color:var(--text-muted)}
+.a-page .ah .st{padding:2px 8px;border-radius:4px;background:rgba(34,211,238,.1);color:var(--cyan)}
+.ac{font-size:.95rem;line-height:1.9;color:var(--text)}
+.ac p{margin-bottom:12px}
+.ac strong{display:block;margin:20px 0 8px;font-size:1.05rem;color:var(--accent)}
+.ac ul,.ac ol{padding-left:20px;margin-bottom:12px}
+.ac li{margin-bottom:6px}
+.ac .bq{padding:12px;margin:12px 0;background:var(--bg2);border-radius:8px;border-left:3px solid var(--accent);font-size:.9rem}
+.ac hr{border:none;border-top:1px solid var(--border);margin:16px 0}
 
-/* ── Container ── */
-.container { max-width: var(--max-w); margin: 0 auto; padding: 0 16px; }
+.ab{margin-top:24px;padding:16px 0;border-top:1px solid var(--border);display:flex;gap:12px}
+.ab a{flex:1;text-align:center;padding:12px;border-radius:8px;font-size:.9rem;font-weight:500;transition:all .15s}
+.ab .sl{background:var(--card);border:1px solid var(--border);color:var(--accent)}
+.ab .sl:active{background:var(--card-hover)}
+.ab .bl{background:rgba(91,124,250,.1);color:var(--accent)}
+.ab .bl:active{background:rgba(91,124,250,.2)}
 
-/* ── Feed ── */
-.feed { padding: 16px 0 40px; }
-
-/* ── Date Separator ── */
-.date-sep {
-    display: flex; align-items: center; gap: 12px;
-    margin: 24px 0 12px;
-    color: var(--text-muted); font-size: 0.8rem; font-weight: 600;
-}
-.date-sep::after {
-    content: ''; flex: 1; height: 1px; background: var(--border);
-}
-.date-sep .weekday { color: var(--text-dim); font-weight: 400; }
-
-/* ── Feed Card ── */
-.feed-card {
-    display: block;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 16px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: all 0.2s;
-    -webkit-tap-highlight-color: transparent;
-}
-.feed-card:active {
-    background: var(--card-hover);
-    transform: scale(0.98);
-}
-.feed-card .type-tag {
-    display: inline-block;
-    font-size: 0.7rem;
-    padding: 2px 8px;
-    border-radius: 4px;
-    margin-bottom: 8px;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-}
-.type-github .type-tag { background: rgba(245, 158, 11, 0.15); color: var(--star); }
-.type-article .type-tag { background: rgba(34, 211, 238, 0.15); color: var(--cyan); }
-
-.feed-card .title {
-    font-size: 1rem; font-weight: 600;
-    margin-bottom: 6px;
-    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-    overflow: hidden;
-}
-.feed-card .desc {
-    font-size: 0.85rem; color: var(--text-muted);
-    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
-    overflow: hidden;
-    line-height: 1.6;
-}
-.feed-card .meta {
-    display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
-    margin-top: 10px; font-size: 0.75rem; color: var(--text-dim);
-}
-.feed-card .meta .stars { color: var(--star); }
-.feed-card .meta .lang {
-    padding: 1px 6px; border-radius: 3px;
-    background: rgba(91, 124, 250, 0.1); color: var(--accent);
-}
-
-/* ── Article Page ── */
-.article-page { padding: 20px 0 40px; }
-.article-page .article-header { margin-bottom: 20px; }
-.article-page .article-header h1 {
-    font-size: 1.35rem; font-weight: 700; line-height: 1.4;
-    margin-bottom: 10px;
-}
-.article-page .article-header .meta {
-    display: flex; gap: 8px; align-items: center; flex-wrap: wrap;
-    font-size: 0.8rem; color: var(--text-muted);
-}
-.article-page .article-header .source-tag {
-    padding: 2px 8px; border-radius: 4px;
-    background: rgba(34, 211, 238, 0.1); color: var(--cyan);
-}
-.article-page .article-content {
-    font-size: 0.95rem; line-height: 1.9; color: var(--text);
-}
-.article-page .article-content p { margin-bottom: 12px; }
-.article-page .article-content strong {
-    display: block; margin: 20px 0 8px; font-size: 1.05rem;
-    color: var(--accent);
-}
-.article-page .article-content ul, .article-page .article-content ol {
-    padding-left: 20px; margin-bottom: 12px;
-}
-.article-page .article-content li { margin-bottom: 6px; }
-.article-page .article-content .block {
-    padding: 12px; margin: 12px 0;
-    background: var(--bg2); border-radius: 8px;
-    border-left: 3px solid var(--accent);
-    font-size: 0.9rem;
-}
-
-/* ── Action Bar ── */
-.action-bar {
-    margin-top: 24px; padding: 16px 0;
-    border-top: 1px solid var(--border);
-    display: flex; gap: 12px;
-}
-.action-bar a {
-    flex: 1; text-align: center;
-    padding: 12px; border-radius: 8px;
-    font-size: 0.9rem; font-weight: 500;
-    transition: all 0.2s;
-}
-.action-bar .source-link {
-    background: var(--card);
-    border: 1px solid var(--border);
-    color: var(--accent);
-}
-.action-bar .source-link:active { background: var(--card-hover); }
-.action-bar .back-link {
-    background: rgba(91, 124, 250, 0.1);
-    color: var(--accent);
-}
-.action-bar .back-link:active { background: rgba(91, 124, 250, 0.2); }
-
-/* ── Footer ── */
-.footer {
-    text-align: center; padding: 32px 0 24px;
-    color: var(--text-dim); font-size: 0.75rem;
-    border-top: 1px solid var(--border); margin-top: 16px;
-}
-
-/* ── Empty State ── */
-.empty-state {
-    text-align: center; padding: 80px 0;
-    color: var(--text-dim); font-size: 0.9rem;
-}
-
-/* ── Scrollbar ── */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
-
-@media (max-width: 480px) {
-    html { font-size: 15px; }
-    .feed-card { padding: 14px; }
-    .article-page .article-header h1 { font-size: 1.2rem; }
-}
+.footer{text-align:center;padding:32px 0 24px;color:var(--text-dim);font-size:.75rem;border-top:1px solid var(--border);margin-top:16px}
+.es{text-align:center;padding:80px 0;color:var(--text-dim);font-size:.9rem}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+@media(max-width:480px){html{font-size:15px}.feed-card{padding:14px}.a-page .ah h1{font-size:1.15rem}}
 </style>
 </head>
-<body><header class="appbar"><div class="inner"><a href="/" class="back">← 返回</a></div></header><main class="container"><article class="article-page"><div class="article-header"><div style="font-size:0.8rem;color:var(--text-muted);margin-bottom:8px;">⭐ GitHub 项目</div><h1>omlx</h1><div class="meta"><span style="color:var(--star);">⭐ 13.3k</span><span class="source-tag">Python</span></div></div><div class="article-content"><p style="color:var(--text-muted);font-size:0.9rem;">LLM 推理服务器，支持 Apple Silicon 连续批处理 + SSD 缓存，配备 macOS 菜单栏管理界面。</p><hr style="border:none;border-top:1px solid var(--border);margin:16px 0;"></div><div class="article-content"><p style="color:var(--text-dim);">暂无中文翻译</p></div><div class="action-bar"><a href="https://github.com/jundot/omlx" class="source-link" target="_blank" rel="noopener">🔗 阅读原文</a><a href="/" class="back-link">← 返回首页</a></div></article></main><footer class="footer"><div class="container"><p>由 AI 自动生成 · 2026-05-11 09:38</p><p style="margin-top:4px;color:var(--text-dim);font-size:0.7rem;">🚀 保持对技术的敏锐</p></div></footer></body></html>
+<body><header class="appbar"><div class="inner"><a href="/" class="back">← 返回</a></div></header><main class="container"><article class="a-page"><div class="ah"><div style="font-size:.8rem;color:var(--text-muted);margin-bottom:6px">⭐ GitHub 项目</div><h1>omlx</h1><div class="am"><span style="color:var(--star)">⭐ 13.3k</span><span class="st">Python</span></div></div><div class="ac"><p style="color:var(--text-muted);font-size:.9rem">LLM 推理服务器，支持 Apple Silicon 连续批处理 + SSD 缓存，配备 macOS 菜单栏管理界面。</p><hr></div><div class="ab"><a href="https://github.com/jundot/omlx" class="sl" target="_blank" rel="noopener">🔗 阅读原文</a><a href="/" class="bl">← 返回首页</a></div></article></main><footer class="footer"><div class="container"><p>由 AI 自动生成 · 2026-05-11 09:42</p><p style="margin-top:4px;font-size:.7rem;color:var(--text-dim)">🚀 保持对技术的敏锐</p></div></footer></body>
+</html>
